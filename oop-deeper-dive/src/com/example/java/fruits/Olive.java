@@ -42,7 +42,9 @@ public abstract class Olive {
         this.oil = oil;
     }
 
-    protected abstract String getOrigin();
+    protected String getOrigin() {
+        return "implemented in sub classes";
+    }
 
     @Override
     public String toString() {
