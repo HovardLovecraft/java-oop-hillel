@@ -3,6 +3,7 @@ package com.example.java;
 import com.example.java.fruits.Olive;
 import com.example.java.fruits.model.Kalamata;
 import com.example.java.fruits.model.Ligurian;
+import com.example.java.tools.IPress;
 import com.example.java.tools.model.OlivePress;
 
 /**
@@ -16,7 +17,7 @@ import com.example.java.tools.model.OlivePress;
 
 public class Main {
     public static void main(String[] args) {
-        OlivePress press = new OlivePress();
+        IPress press = new OlivePress();
         int totalOil = press.getOil(new Olive[]{new Kalamata(), new Ligurian(), new Kalamata()});
 
         System.out.println("You got " + totalOil + " units of oil");
