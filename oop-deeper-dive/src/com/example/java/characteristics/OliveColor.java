@@ -1,7 +1,10 @@
 package com.example.java.characteristics;
 
 public enum OliveColor {
-    PURPLE("Purple", 0x2E0854), BLACK("Black", 0x000000), GREEN("Green", 0x00FF00);
+    PURPLE("Purple", 0x2E0854),
+    BLACK("Black", 0x000000),
+    GREEN("Green", 0x00FF00),
+    BLUE("Blue", 0x00FF00);
 
     String name;
     long color;

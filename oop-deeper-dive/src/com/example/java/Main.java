@@ -1,10 +1,21 @@
 package com.example.java;
 
+import com.example.java.characteristics.OliveColor;
+import com.example.java.characteristics.OliveName;
 import com.example.java.fruits.Olive;
+import com.example.java.fruits.model.Alfafara;
 import com.example.java.fruits.model.Kalamata;
 import com.example.java.fruits.model.Ligurian;
+import com.example.java.fruits.model.SomeNewOlive;
 import com.example.java.tools.IPress;
+import com.example.java.tools.OliveOilComparator;
+import com.example.java.tools.OlivePicker;
+import com.example.java.tools.OliveSorter;
 import com.example.java.tools.model.OlivePress;
+
+import java.util.Arrays;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Create Java program which implements olive press and gets oil from olives.
@@ -18,8 +29,60 @@ import com.example.java.tools.model.OlivePress;
 public class Main {
     public static void main(String[] args) {
         IPress press = new OlivePress();
+        OliveOilComparator oliveOilComparator = new OliveOilComparator();
+        OlivePicker picker = new OlivePicker();
         int totalOil = press.getOil(new Olive[]{new Kalamata(), new Ligurian(), new Kalamata()});
 
         System.out.println("You got " + totalOil + " units of oil");
+
+        System.out.println("ENUM values method");
+        OliveName[] oliveNameArr = OliveName.values();
+        for (OliveName oliveName : oliveNameArr)  {
+            System.out.println(oliveName.name());
+        }
+
+        OliveColor[] oliveColors = OliveColor.values();
+        for (OliveColor oliveColor : oliveColors) {
+            System.out.println(oliveColor);
+        }
+
+
+        System.out.println("TESTING COMPARABLE INTERFACE");
+        Set<Olive> oliveSet = new TreeSet<>();
+        oliveSet.add(new Alfafara());
+        oliveSet.add(new Kalamata());
+        oliveSet.add(new Ligurian());
+        oliveSet.add(new SomeNewOlive());
+        oliveSet.forEach(System.out::println);
+
+
+        System.out.println("TESTING COMPARATOR INTERFACE");
+        Olive[] olives = new Olive[]{new SomeNewOlive(), new Kalamata(), new Ligurian(), new SomeNewOlive(), new Alfafara(), new SomeNewOlive()};
+        System.out.println("UNSORTED ARR");
+        for (Olive o : olives) {
+            System.out.println(o.getName());
+        }
+        Arrays.sort(olives, oliveOilComparator);
+        System.out.println("SORTED ARR");
+        for (Olive o : olives) {
+            System.out.println(o.getName());
+        }
+
+        System.out.println("TESTING COMPARATOR INTERFACE FROM SEPARATE CLASS");
+        Olive[] olives1 = new Olive[]{new SomeNewOlive(), new Kalamata(), new Ligurian(), new SomeNewOlive(), new Alfafara(), new SomeNewOlive()};
+        System.out.println("UNSORTED ARR");
+        for (Olive o : olives1) {
+            System.out.println(o.getName());
+        }
+        Arrays.sort(olives1, OliveSorter.oliveOilComparator);
+        for (Olive o : olives1) {
+            System.out.println(o.getName());
+        }
+
+        System.out.println("TESTING OLIVE PICKER");
+        Olive[] bigOlives = picker.getBigOlives(new Olive[]{new SomeNewOlive(), new Kalamata(), new Ligurian(), new SomeNewOlive(), new Alfafara(), new SomeNewOlive()});
+        for (Olive o : bigOlives) {
+            System.out.println(o);
+        }
     }
 }
