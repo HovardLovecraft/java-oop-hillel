@@ -5,7 +5,7 @@ import com.example.java.characteristics.OliveName;
 
 import java.util.Objects;
 
-public abstract class Olive {
+public abstract class Olive implements Comparable<Olive> {
 
     private OliveName name;
     private OliveColor color;
@@ -34,7 +34,7 @@ public abstract class Olive {
     }
 
     public int crush() {
-        System.out.println(name + " - from " + getOrigin() + ": " + oil + " units of oil");
+       // System.out.println(name + " - from " + getOrigin() + ": " + oil + " units of oil");
         return oil;
     }
 

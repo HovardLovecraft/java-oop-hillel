@@ -4,15 +4,18 @@ import com.example.java.characteristics.OliveColor;
 import com.example.java.characteristics.OliveName;
 import com.example.java.fruits.Olive;
 
-public class Ligurian extends Olive {
-    public Ligurian() {
-        super(OliveName.LIGURIAN, OliveColor.BLACK, 5);
+public class Alfafara extends Olive {
+
+    public Alfafara() {
+        super(OliveName.ALFAFARA, OliveColor.GREEN, 7);
     }
 
+
     @Override
-    public String getOrigin() {
-        return "Italy";
+    protected String getOrigin() {
+        return "Spain";
     }
+
 
     @Override
     public int compareTo(Olive o) {

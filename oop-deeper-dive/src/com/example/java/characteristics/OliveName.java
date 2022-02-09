@@ -1,7 +1,10 @@
 package com.example.java.characteristics;
 
 public enum OliveName {
-    KALAMATA("Kalamata"), LIGURIAN("Ligurian");
+    KALAMATA("Kalamata"),
+    LIGURIAN("Ligurian"),
+    ALFAFARA("Alfafara"),
+    SOME_NEW_OLIVE("Some new olive");
 
     private String name;
 
