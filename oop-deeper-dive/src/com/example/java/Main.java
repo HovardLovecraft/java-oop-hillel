@@ -14,6 +14,7 @@ import com.example.java.tools.OliveSorter;
 import com.example.java.tools.model.OlivePress;
 
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -31,7 +32,7 @@ public class Main {
         IPress press = new OlivePress();
         OliveOilComparator oliveOilComparator = new OliveOilComparator();
         OlivePicker picker = new OlivePicker();
-        int totalOil = press.getOil(new Olive[]{new Kalamata(), new Ligurian(), new Kalamata()});
+        int totalOil = press.getOil(new Olive[]{new Kalamata(), new Ligurian(), new Kalamata(), new SomeNewOlive()});
 
         System.out.println("You got " + totalOil + " units of oil");
 
@@ -84,5 +85,40 @@ public class Main {
         for (Olive o : bigOlives) {
             System.out.println(o);
         }
+
+
+        System.out.println("EXCEPTIONS BLOCK");
+        try {
+            int[] ints = new int[3];
+            ints[5] = 33;
+            ints[1] = Integer.parseInt("steasd");
+            System.out.println(ints[1]);
+        }
+        catch (ArrayIndexOutOfBoundsException exception) {
+            System.out.println("EXCEPTIONS HANDLED");
+            exception.printStackTrace();
+        }
+        catch (NumberFormatException exception) {
+            System.out.println("ERROR WHILE PARSING INTEGER");
+            exception.printStackTrace();
+        }
+
+        System.out.println("THROW EXCEPTION BLOCK");
+
+        try {
+            Scanner scanner = new Scanner(System.in);
+            int x = scanner.nextInt();
+            if (x > 10) {
+                throw new Exception("Number should be less than 10");
+            }
+
+            System.out.println("X = " + x);
+
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
+        System.out.println("POST EXCEPTIONS BLOCK");
+        System.out.println("PROGRAM CONTINUES IT'S EXECUTION");
     }
 }
